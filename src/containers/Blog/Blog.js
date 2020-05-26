@@ -19,6 +19,7 @@ class Blog extends Component
                 const visiblePosts = response.data.splice(0,3).map(post =>({...post, author : 'Olivier'}))
                 this.setState({ posts : visiblePosts})
             })
+            .catch(e => this.setState({error : true}))
     }
 
     postSelectedHandler = id => {
@@ -27,7 +28,8 @@ class Blog extends Component
 
     render() 
     {
-        const postCompononents = this.state.posts.map(post => <Post key={post.id} post={post} clicked={this.postSelectedHandler.bind(this)} />)
+        let postCompononents = this.state.error ? <p>Something went wrong</p> : 
+            this.state.posts.map(post => <Post key={post.id} post={post} clicked={this.postSelectedHandler.bind(this)} />)
         return (
             <div>
                 <section className={classes.Posts}>
