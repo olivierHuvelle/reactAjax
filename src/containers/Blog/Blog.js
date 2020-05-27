@@ -32,6 +32,15 @@ class Blog extends Component
             this.state.posts.map(post => <Post key={post.id} post={post} clicked={this.postSelectedHandler.bind(this)} />)
         return (
             <div>
+                <header>
+                    <nav className={classes.Navbar}>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/">New Article</a></li>
+                        </ul>
+                    </nav>
+                </header>
+
                 <section className={classes.Posts}>
                   {postCompononents}
                 </section>

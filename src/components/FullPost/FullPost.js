@@ -6,6 +6,7 @@ class FullPost extends Component {
     state = {
         currentPost : null
     }
+    
     componentDidUpdate () { //ici il faudrait split et créer une sous-méthode ex fetchData 
         if(Number.isInteger(this.props.id) && this.props.id > 0 && (!this.state.currentPost || this.state.currentPost.id !== this.props.id))
         {
@@ -41,6 +42,3 @@ class FullPost extends Component {
 }
 
 export default FullPost;
-/*
- add propTypes here in a very close future 
-*/
